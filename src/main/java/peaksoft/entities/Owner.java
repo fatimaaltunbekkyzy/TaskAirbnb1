@@ -18,7 +18,7 @@ public class Owner {
     @Id
     @GeneratedValue(generator= "owner_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name="owner_gen",sequenceName = "owner_seq", allocationSize=1)
-    private Long  id;
+    private Long  OwnerId;
     private String firstName;
     private String lastName;
     private String email;

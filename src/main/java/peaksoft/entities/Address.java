@@ -14,7 +14,7 @@ public class Address {
     @Id
     @GeneratedValue(generator= "address_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name="address_gen",sequenceName = "address_seq", allocationSize=1)
-    private Long id;
+    private Long AddressId;
     //@Column(name = "street", unique = true)
     private String street;
     private String city;
@@ -30,14 +30,6 @@ public class Address {
         this.street = street;
         this.city = city;
         this.region = region;
-    }
-
-    public Address(String street, String city, String region, Agency agency) {
-        this.street = street;
-        this.city = city;
-        this.region = region;
-        this.agency = agency;
-
     }
 }
 

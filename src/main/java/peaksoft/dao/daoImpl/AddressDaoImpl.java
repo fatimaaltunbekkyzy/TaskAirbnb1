@@ -14,14 +14,6 @@ import java.util.List;
 public class AddressDaoImpl  implements AddressDao {
     private final EntityManagerFactory entityManagerFactory = HibernateConfig.getEntityManagerFactory();
 
-  //  @Override
-  //  public void saveAddress(Address address) {
-//        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
-//            entityManager.getTransaction().begin();
-//            entityManager.persist(address);
-//            entityManager.getTransaction().commit();
-//        } catch (HibernateException e) {
-//            System.out.println(e.getMessage());
 
     @Override
     public List<Address> getAllAddress() {
@@ -70,13 +62,10 @@ public class AddressDaoImpl  implements AddressDao {
     public long countAgenciesInCity(String city) {
         try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
             entityManager.getTransaction().begin();
-
-            // Белгилүү бир шаардагы агенттиктердин санын эсептөө
             Long count = entityManager.createQuery(
                             "SELECT COUNT(ag) FROM Agency ag JOIN ag.address a WHERE a.city = :city", Long.class)
                     .setParameter("city", city)
                     .getSingleResult();
-
             entityManager.getTransaction().commit();
             return count;
         } catch (HibernateException e) {

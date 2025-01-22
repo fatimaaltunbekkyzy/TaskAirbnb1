@@ -17,7 +17,7 @@ public class House {
     @Id
     @GeneratedValue(generator= "house_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name="house_gen",sequenceName = "house_seq", allocationSize=1)
-    private Long id;
+    private Long HouseId;
     private BigDecimal price;
     private double rating;
     private String description;

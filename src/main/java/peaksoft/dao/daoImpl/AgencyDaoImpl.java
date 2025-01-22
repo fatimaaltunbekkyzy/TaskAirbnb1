@@ -30,7 +30,7 @@ public class AgencyDaoImpl implements AgencyDao {
             agencies = entityManager.createQuery("SELECT a FROM Agency a", Agency.class).getResultList();
             entityManager.getTransaction().commit();
         } catch (HibernateException e) {
-            System.out.println("Error occurred while fetching agencies: " + e.getMessage());
+            System.out.println("Error while fetching agencies: " + e.getMessage());
         }
 
         return agencies;

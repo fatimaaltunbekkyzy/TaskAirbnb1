@@ -18,7 +18,7 @@ public class RentInfo {
     @GeneratedValue(generator= "rentInfo_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name="rentInfo",sequenceName = "rentInfo_seq", allocationSize=1)
 
-    private Long id;
+    private Long RentInfoId;
     private LocalDate checkin;
     private LocalDate checkOut;
 
@@ -28,24 +28,18 @@ public class RentInfo {
             CascadeType.REFRESH})
             private Agency agency;
 
-    @OneToMany(mappedBy = "rentInfo")//Customer классы RentInfo классы менен many_to_one bi-directional
-    private List<Customer> customers;
-
-    @OneToMany(mappedBy = "rentInfo") //Owner классы RentInfo классы менен many_to_one bi-directional байланышында
-    private List<Owner> owners;
-
-    @OneToOne
-    private House house;
+//    @OneToMany(mappedBy = "rentInfo")//Customer классы RentInfo классы менен many_to_one bi-directional
+//    private List<Customer> customers;
+//
+//    @OneToMany(mappedBy = "rentInfo") //Owner классы RentInfo классы менен many_to_one bi-directional байланышында
+//    private List<Owner> owners;
+//
+//    @OneToOne
+//    private House house;
 
     public RentInfo(LocalDate checkin, LocalDate checkOut) {
         this.checkin = checkin;
         this.checkOut = checkOut;
-    }
-
-    public RentInfo(LocalDate checkin, LocalDate checkOut, House house) {
-        this.checkin = checkin;
-        this.checkOut = checkOut;
-        this.house = house;
 
     }
 }

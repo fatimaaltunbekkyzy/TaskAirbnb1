@@ -8,13 +8,14 @@ import peaksoft.service.CustomerService;
 
 public class CustomerServiceImpl implements CustomerService {
     CustomerDao customerDao = new CustomerDaoImpl();
+
     @Override
     public void saveCustomer(Customer customer) {
         customerDao.saveCustomer(customer);
     }
 
     @Override
-    public void saveCustomerWithRentInfo(Customer customer, RentInfo rentInfo) {
-customerDao.saveCustomerWithRentInfo(customer, rentInfo);
+    public void saveCustomerWithRentInfo(Customer customer, Long houseId, Long agencyId, Long rentInfoId) {
+    customerDao.saveCustomerWithRentInfo(customer, houseId, agencyId, rentInfoId);
     }
 }
